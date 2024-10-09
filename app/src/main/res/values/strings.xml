@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AplicandoEstilos</string>
+    <string name="lbl_color">Color:</string>
+    <string name="rbt_rojo">Rojo</string>
+    <string name="rbt_verde">Verde</string>
+    <string name="rbt_azul">Azul</string>
+    <string name="lbl_estilo">Estilo:</string>
+    <string name="txt_negrita">Negrita</string>
+    <string name="txt_cursiva">Cursiva</string>
+    <string name="txt_texto_de_prueba">Texto De Prueba</string>
+    <string name="lbl_modo_oscuro">Modo Oscuro</string>
+    <string name="lbl_informacion_log">Información Log</string>
+</resources>
