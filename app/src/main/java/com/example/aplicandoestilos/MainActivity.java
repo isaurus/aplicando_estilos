@@ -11,8 +11,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
-import org.intellij.lang.annotations.JdkConstants;
-
 public class MainActivity extends AppCompatActivity {
 
     // Declaración de RadioGroup
@@ -44,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         // Instancia de TextView
         txtResultado = findViewById(R.id.txtResultado);
 
+        // Recoger el estilo predeterminado del TextView
+        Typeface estiloPredeterminado = txtResultado.getTypeface();
+
         // Instancia de SwitchCompat
         swModoOscuro = findViewById(R.id.swModoOscuro);
         swInformacionLog = findViewById(R.id.swInformacionLog);
@@ -61,16 +62,71 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // ACTUALMENTE NO FUNCIONA EL CHECKBOX
+
+        chbNegrita.setOnCheckedChangeListener((buttonView, isChecked) -> txtResultado.setTypeface(estiloPredeterminado, Typeface.BOLD));
+        chbCursiva.setOnCheckedChangeListener((buttonView, isChecked) -> txtResultado.setTypeface(estiloPredeterminado, Typeface.ITALIC));
+
+
+        /*
+        // Listener para CheckBox de estilo negrita
+        chbNegrita.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(chbNegrita.isChecked() && chbCursiva.isChecked()){
+                    txtResultado.setTypeface(estiloPredeterminado, Typeface.BOLD_ITALIC);
+                } else if(chbNegrita.isChecked()){
+                    txtResultado.setTypeface(estiloPredeterminado, Typeface.BOLD);
+                } else if(chbCursiva.isChecked()){
+                    txtResultado.setTypeface(estiloPredeterminado, Typeface.ITALIC);
+                } else {
+                    txtResultado.setTypeface(estiloPredeterminado);
+                }
+            }
+        });
+         */
+
+        /*
+        // Listener para CheckBox chbNegrita
         chbNegrita.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(chbNegrita.isChecked()){
-                    txtResultado.setTypeface(txtResultado.getTypeface(), Typeface.BOLD);
-                } else{
-                    txtResultado.setTypeface(txtResultado.getTypeface(), Typeface.NORMAL);
+                    txtResultado.setTypeface(estiloPredeterminado, Typeface.BOLD);
+                }else{
+                    txtResultado.setTypeface(estiloPredeterminado);
                 }
             }
-        });
+        });*/
+
+        /*
+        // Listener para CheckBox chbCursiva
+        chbCursiva.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(chbCursiva.isChecked()){
+                    txtResultado.setTypeface(estiloPredeterminado, Typeface.ITALIC);
+                }else{
+                    txtResultado.setTypeface(estiloPredeterminado);
+                }
+            }
+        });*/
     }
+
+
+    /*
+    protected void cambiarEstilo(){
+        if(chbNegrita.isChecked() && chbCursiva.isChecked()){
+            txtResultado.setTypeface(estiloPredeterminado, Typeface.BOLD_ITALIC);
+        } else if(chbNegrita.isChecked()){
+            txtResultado.setTypeface(estiloPredeterminado, Typeface.BOLD);
+        } else if(chbCursiva.isChecked()){
+            txtResultado.setTypeface(estiloPredeterminado, Typeface.ITALIC);
+        } else {
+            txtResultado.setTypeface(estiloPredeterminado);
+        }
+    }
+
+     */
+
+
 }
